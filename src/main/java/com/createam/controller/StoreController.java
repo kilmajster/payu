@@ -70,7 +70,7 @@ public class StoreController {
   }
 
   @GetMapping(URL_PAYMENT)
-  public String payment(final @RequestParam Optional<String> error) {
+  public String paymentFinish(final @RequestParam Optional<String> error) {
     error.ifPresent(e -> log.error("ERROR CODE - " + e));
     return error.isPresent() ? PAGE_PAYMENT_ERROR : PAGE_PAYMENT_CONFIRMATION;
   }
