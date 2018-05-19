@@ -516,3 +516,9 @@ body {
     opacity: 1;
   }
 }
+
+.button.secondary {
+  background: #009cee;
+  border-radius: 12px;
+  border-style: none;
+}
