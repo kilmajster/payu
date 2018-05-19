@@ -2,6 +2,7 @@ package com.createam.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -53,7 +54,7 @@ public class StoreControllerTest {
     storeController.checkout(checkoutForm, request);
 
     ArgumentCaptor<OrderCreateRequest> capturedOrderRequest = ArgumentCaptor.forClass(OrderCreateRequest.class);
-    verify(orderService).order(capturedOrderRequest.capture());
+    verify(orderService, times(1)).order(capturedOrderRequest.capture());
     assertThat(capturedOrderRequest.getValue().getBuyer().getEmail()).isEqualTo(testEmail);
   }
 
@@ -67,7 +68,7 @@ public class StoreControllerTest {
   }
 
   @Test
-  public void shouldShowErrorView_whenPaymentSucceed() {
+  public void shouldShowErrorView_whenPaymentFailed() {
     final Optional<String> error = Optional.of("502");
 
     final String resultView = storeController.paymentFinish(error);
