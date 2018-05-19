@@ -54,7 +54,7 @@ public class StoreController {
 
   @GetMapping(URL_INDEX)
   public String index(final Model model) {
-    model.addAttribute(new CheckoutForm());
+    model.addAttribute(CheckoutForm.builder().build());
     return PAGE_INDEX;
   }
 
@@ -70,7 +70,7 @@ public class StoreController {
   }
 
   @GetMapping(URL_PAYMENT)
-  public String payment(final @RequestParam Optional<String> error) {
+  public String paymentFinish(final @RequestParam Optional<String> error) {
     error.ifPresent(e -> log.error("ERROR CODE - " + e));
     return error.isPresent() ? PAGE_PAYMENT_ERROR : PAGE_PAYMENT_CONFIRMATION;
   }
