@@ -1,11 +1,9 @@
 package com.createam.payu.order.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class OrderCreateResponse {
 
   @JsonAlias
