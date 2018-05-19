@@ -40,7 +40,8 @@ public class StoreControllerTest {
   @Test
   public void shouldCreateOrderWithCorrectEmail() {
     final String testEmail = "test@example.com";
-    final CheckoutForm checkoutForm = CheckoutForm.builder().email(testEmail).build();
+    final CheckoutForm checkoutForm = new CheckoutForm();
+    checkoutForm.setEmail(testEmail);
     when(request.getRemoteAddr()).thenReturn("localhost");
     final OrderCreateResponse.Status statusSucceed =  new OrderCreateResponse.Status();
     statusSucceed.setStatusCode("SUCCESS");
