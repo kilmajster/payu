@@ -54,7 +54,7 @@ public class StoreController {
 
   @GetMapping(URL_INDEX)
   public String index(final Model model) {
-    model.addAttribute(CheckoutForm.builder().build());
+    model.addAttribute(new CheckoutForm());
     return PAGE_INDEX;
   }
 
