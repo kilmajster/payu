@@ -46,7 +46,6 @@ public class StoreControllerTest {
     when(request.getRemoteAddr()).thenReturn("localhost");
     final OrderCreateResponse.Status statusSucceed =  new OrderCreateResponse.Status();
     statusSucceed.setStatusCode("SUCCESS");
-
     final OrderCreateResponse mockedResponse = new OrderCreateResponse();
     mockedResponse.setStatus(statusSucceed);
     when(orderService.order(any())).thenReturn(mockedResponse);
