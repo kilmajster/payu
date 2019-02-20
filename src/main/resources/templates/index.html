@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Karty podarunkowe</title>
+  <title>Gift cards</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"/>
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'/>
@@ -17,19 +17,19 @@
     <div class="giftcard-content">
       <!--<h2>Your order will be shipped to:</h2>-->
       <address>
-        <h3>Karta podarunkowa</h3>
-        <p>Potwierdzenie zostanie przesłane na wskazany adres email.</p>
+        <h3>Gift card</h3>
+        <p>We will send you an email with confirmation.</p>
       </address>
       <div class="subtext"></div>
     </div>
     <footer class="giftcard-footer">
       <div class="giftcard-text">
-        <h1>Karta podarunkowa</h1>
+        <h1>Gift card</h1>
         <h2>25.00 PLN</h2>
       </div>
       <div class="ribbon">
         <div class="giftwrap">
-          <a href="#buy" class="button">Kup</a>
+          <a href="#buy" class="button">Buy</a>
         </div>
         <div class="bow">
           <i class="fa fa-bookmark"></i>
@@ -38,10 +38,10 @@
       </div>
       <div class="giftcard-info">
         <div>
-        <input th:field="*{email}" type="email" placeholder="twój email"/>
+        <input th:field="*{email}" type="email" placeholder="your email"/>
         </div>
         <div>
-          <input class="button secondary" type="submit" value="Zapłać" style="cursor: pointer"/>
+          <input class="button secondary" type="submit" value="Checout" style="cursor: pointer"/>
         </div>
       </div>
     </footer>
