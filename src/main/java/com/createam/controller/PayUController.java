@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class StoreController {
+public class PayUController {
 
   public static final String URL_INDEX = "/";
   public static final String PAGE_INDEX = "index";
@@ -48,7 +48,7 @@ public class StoreController {
   private final OrderService orderService;
 
   @Autowired
-  public StoreController(final OrderService orderService) {
+  public PayUController(final OrderService orderService) {
     this.orderService = orderService;
   }
 
@@ -61,11 +61,20 @@ public class StoreController {
   @PostMapping(URL_CHECKOUT)
   public RedirectView checkout(final @ModelAttribute CheckoutForm checkoutForm, final HttpServletRequest request) {
     final OrderCreateRequest orderRequest = prepareOrderCreateRequest(checkoutForm, request);
+
+    log.info("orderRequest = {}", orderRequest);
+
     final OrderCreateResponse response = orderService.order(orderRequest);
 
     if (!response.getStatus().getStatusCode().equals(STATUS_CODE_SUCCESS)) {
       throw new RuntimeException("Payment failed! ");
     }
+
+    log.info("response.getRedirectUri() = {}", response.getRedirectUri());
+    log.info("response.getOrderId() = {}", response.getOrderId());
+    log.info("response.getStatus() = {}", response.getStatus());
+    log.info("response.toString() = {}", response.toString());
+
     return new RedirectView(response.getRedirectUri());
   }
 
