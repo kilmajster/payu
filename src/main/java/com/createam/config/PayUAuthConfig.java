@@ -2,6 +2,7 @@ package com.createam.config;
 
 import java.util.Collections;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,15 +13,11 @@ import org.springframework.web.client.RestTemplate;
 import com.createam.payu.auth.AuthResponse;
 import com.createam.payu.auth.AuthService;
 
+@RequiredArgsConstructor
 @Configuration
-class PayuConfig {
+class PayUAuthConfig {
 
   private final AuthService authService;
-
-  @Autowired
-  public PayuConfig(final AuthService authService) {
-    this.authService = authService;
-  }
 
   @Bean("payuApiRestTemplate")
   public RestTemplate payuRestTemplate() {

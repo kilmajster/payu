@@ -27,6 +27,9 @@ public class OrderService {
   @SneakyThrows
   public OrderCreateResponse order(final OrderCreateRequest orderCreateRequest) {
     final ResponseEntity<String> jsonResponse = restTemplate.postForEntity(payuOrderUrl, orderCreateRequest, String.class);
+
+    log.info("Response as String = {}", jsonResponse.getBody());
+
     return objectMapper.readValue(jsonResponse.getBody(), OrderCreateResponse.class);
   }
 }

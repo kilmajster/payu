@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CreateamPayuApplication {
+public class PayUDemoApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CreateamPayuApplication.class, args);
+		SpringApplication.run(PayUDemoApp.class, args);
 	}
 }
