@@ -3,6 +3,8 @@ package com.createam.controller;
 import static com.createam.payu.order.model.OrderCreateResponse.Status.STATUS_CODE_SUCCESS;
 import static java.util.Arrays.asList;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -59,7 +61,7 @@ public class PayUController {
   }
 
   @PostMapping(URL_CHECKOUT)
-  public RedirectView checkout(final @ModelAttribute CheckoutForm checkoutForm, final HttpServletRequest request) {
+  public RedirectView checkout(final @ModelAttribute CheckoutForm checkoutForm, final HttpServletRequest request) throws UnknownHostException {
     final OrderCreateRequest orderRequest = prepareOrderCreateRequest(checkoutForm, request);
 
     log.info("orderRequest = {}", orderRequest);
@@ -74,6 +76,11 @@ public class PayUController {
     log.info("response.getOrderId() = {}", response.getOrderId());
     log.info("response.getStatus() = {}", response.getStatus());
     log.info("response.toString() = {}", response.toString());
+
+    log.info("InetAddress.getLocalHost().getHostAddress() = {}", InetAddress.getLocalHost().getHostAddress());
+    log.info("InetAddress.getLocalHost().getHostName() = {}", InetAddress.getLocalHost().getHostName());
+    log.info("InetAddress.getLoopbackAddress().getHostAddress() = {}", InetAddress.getLoopbackAddress().getHostAddress());
+    log.info("InetAddress.getLoopbackAddress().getHostName() = {}", InetAddress.getLoopbackAddress().getHostName());
 
     return new RedirectView(response.getRedirectUri());
   }
