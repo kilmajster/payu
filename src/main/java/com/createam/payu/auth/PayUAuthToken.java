@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
 
 @Data
-public class AuthResponse {
+public class PayUAuthToken {
   @JsonAlias("access_token")
   private String accessToken;
   @JsonAlias("token_type")

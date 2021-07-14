@@ -1,6 +1,7 @@
 package com.createam.payu.order.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Data
@@ -12,6 +13,9 @@ public class OrderCreateResponse {
   private String redirectUri;
 
   private Status status;
+
+  @JsonIgnore
+  private String rawResponse;
 
   @Data
   public static class Status {

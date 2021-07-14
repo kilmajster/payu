@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PayU & spring-boot demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'><link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="row justify-content-center">
+        <h1 class="text-center">PayU & spring-boot integration demo</h1>
+    </div>
+
+    <form class="well form-horizontal"  action="#" th:action="@{/}" th:object="${payuForm}" method="post" id="payu_form">
+        <fieldset>
+            <legend>PayU configuration</legend>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Authentication method (OAuth2 grant_type)</label>
+                <div class="col-md-4 selectContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                        <select name="grant_type" class="form-control selectpicker" disabled>
+                            <option>client_credentials</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">payu.client-id</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-eye-open"></i></span>
+                        <input  name="payu_client_id" class="form-control"  type="text" value="145227" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">payu.client-secret</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
+                        <input  name="payu_client_secret" class="form-control"  type="text" value="12f071174cb7eb79d4aac5bc2f07563f" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">payu.authorization-uri</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input  name="payu_authorization_uri" class="form-control"  type="text" value="https://secure.payu.com/pl/standard/user/oauth/authorize" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">payu.merchant-pos-id</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                        <input  name="payu_merchant_pos_id" class="form-control"  type="text" value="145227" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">payu.order-url</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-shopping-cart"></i></span>
+                        <input  name="payu_order_url" class="form-control"  type="url" value="https://secure.payu.com/api/v2_1/orders" disabled>
+                    </div>
+                </div>
+            </div>
+            <legend>Required order data</legend>
+            <!-- email-->
+            <div class="form-group">
+                <label class="col-md-4 control-label">Customer email</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input th:field="*{email}" name="email" placeholder="Confirmation will be send on this address" class="form-control"  type="email">
+                    </div>
+                </div>
+            </div>
+            <legend>Optional order data</legend>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Product name</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                        <input th:field="*{productName}" name="product name" placeholder="Dummy product" class="form-control"  type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Price [PLN]</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+                        <input th:field="*{productPrice}" name="price" placeholder="25" class="form-control"  type="number">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Quantity</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
+                        <input name="price" placeholder="Confirmation will be send on this address" class="form-control"  type="number" value="1" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success message -->
+            <div th:if="${paymentFinished} and !${hasError}" class="alert alert-success" role="alert">
+                Success
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+                payment confirmed!
+            </div>
+
+            <div th:if="${paymentFinished} and ${hasError}" class="alert alert-danger" role="alert">
+                Payment failed
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+                something went wrong :(
+            </div>
+
+            <!-- Button -->
+            <div th:if="!${paymentFinished}" class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-warning" >Order <span class="glyphicon glyphicon-ok"></span></button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+</div><!-- /.container -->
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'>
+
+</script><script  src="./script.js"></script>
+
+</body>
+</html>
