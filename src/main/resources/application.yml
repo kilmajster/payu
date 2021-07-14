@@ -8,8 +8,8 @@ payu:
 
 spring:
   profiles:
-#    active: local
-    active: heroku
+    active: local
+#    active: heroku
 
 # heroku config
 ---

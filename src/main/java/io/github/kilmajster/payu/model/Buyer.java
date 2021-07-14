@@ -1,4 +1,4 @@
-package com.createam.model;
+package io.github.kilmajster.payu.model;
 
 
 import lombok.Builder;

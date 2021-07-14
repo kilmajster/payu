@@ -1,4 +1,4 @@
-package com.createam.model;
+package io.github.kilmajster.payu.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnore;

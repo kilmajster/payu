@@ -1,4 +1,4 @@
-package com.createam;
+package io.github.kilmajster.payu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

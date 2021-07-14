@@ -1,9 +1,9 @@
-package com.createam.payu;
+package io.github.kilmajster.payu.service;
 
 import javax.annotation.Resource;
 
-import com.createam.config.PayUConfigurationProperties;
-import com.createam.controller.PayUController;
+import io.github.kilmajster.payu.config.PayUConfigurationProperties;
+import io.github.kilmajster.payu.web.PayUController;
 import lombok.RequiredArgsConstructor;
 import ngrok.api.NgrokApiClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.createam.model.OrderCreateRequest;
-import com.createam.model.OrderCreateResponse;
+import io.github.kilmajster.payu.model.OrderCreateRequest;
+import io.github.kilmajster.payu.model.OrderCreateResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

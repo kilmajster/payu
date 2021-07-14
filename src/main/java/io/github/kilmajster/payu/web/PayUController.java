@@ -1,12 +1,12 @@
-package com.createam.controller;
+package io.github.kilmajster.payu.web;
 
-import com.createam.model.PayUForm;
-import com.createam.config.PayUConfigurationProperties;
-import com.createam.payu.PayUOrderService;
-import com.createam.model.Buyer;
-import com.createam.model.OrderCreateRequest;
-import com.createam.model.OrderCreateResponse;
-import com.createam.model.Product;
+import io.github.kilmajster.payu.config.PayUConfigurationProperties;
+import io.github.kilmajster.payu.model.PayUForm;
+import io.github.kilmajster.payu.service.PayUOrderService;
+import io.github.kilmajster.payu.model.Buyer;
+import io.github.kilmajster.payu.model.OrderCreateRequest;
+import io.github.kilmajster.payu.model.OrderCreateResponse;
+import io.github.kilmajster.payu.model.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.Optional;
 
-import static com.createam.model.OrderCreateResponse.Status.STATUS_CODE_SUCCESS;
+import static io.github.kilmajster.payu.model.OrderCreateResponse.Status.STATUS_CODE_SUCCESS;
 
 @Slf4j
 @Controller

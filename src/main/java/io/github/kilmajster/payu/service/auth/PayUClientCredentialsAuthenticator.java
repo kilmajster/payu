@@ -1,6 +1,6 @@
-package com.createam.payu.auth;
+package io.github.kilmajster.payu.service.auth;
 
-import com.createam.config.PayUConfigurationProperties;
+import io.github.kilmajster.payu.config.PayUConfigurationProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

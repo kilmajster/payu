@@ -1,4 +1,4 @@
-package com.createam.config;
+package io.github.kilmajster.payu.config;
 
 import java.util.Collections;
 
@@ -9,8 +9,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
-import com.createam.payu.auth.PayUAuthToken;
-import com.createam.payu.auth.PayUClientCredentialsAuthenticator;
+import io.github.kilmajster.payu.service.auth.PayUAuthToken;
+import io.github.kilmajster.payu.service.auth.PayUClientCredentialsAuthenticator;
 
 @RequiredArgsConstructor
 @Configuration

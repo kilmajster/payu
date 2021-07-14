@@ -1,4 +1,4 @@
-package com.createam.config;
+package io.github.kilmajster.payu.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

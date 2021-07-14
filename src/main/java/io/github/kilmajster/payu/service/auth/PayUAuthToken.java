@@ -1,4 +1,4 @@
-package com.createam.payu.auth;
+package io.github.kilmajster.payu.service.auth;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
