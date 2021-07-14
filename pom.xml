@@ -5,7 +5,7 @@
 
     <groupId>io.github.kilmajster</groupId>
     <artifactId>payu</artifactId>
-    <version>0.0.2</version>
+    <version>0.1.0</version>
     <packaging>jar</packaging>
 
     <name>payu-demo</name>
@@ -29,12 +29,28 @@
             <version>1.1</version>
         </dependency>
         <dependency>
+            <groupId>io.github.kilmajster</groupId>
+            <artifactId>ngrok-spring-boot-starter</artifactId>
+            <version>SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

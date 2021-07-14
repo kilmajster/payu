@@ -1,0 +1,29 @@
+payu:
+  description: Karty Upominkowe online
+  client-id: 145227
+  client-secret: 12f071174cb7eb79d4aac5bc2f07563f
+  authorization-uri: https://secure.payu.com/pl/standard/user/oauth/authorize
+  merchant-pos-id: 145227
+  order-url: https://secure.payu.com/api/v2_1/orders
+
+spring:
+  profiles:
+    active: local
+    #active: heroku
+
+# heroku config
+---
+spring:
+  profiles: heroku
+server:
+  addr: https://payu-demo.herokuapp.com
+
+# local config with ngrok
+---
+spring:
+  profiles: local
+# this will be ignored anyways if ngrok is enabled but leaving it here to not break anything
+server:
+  addr: http://localhost:8080
+ngrok:
+  enabled: true
