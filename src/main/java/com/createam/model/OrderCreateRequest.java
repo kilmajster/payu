@@ -1,4 +1,4 @@
-package com.createam.payu.order.model;
+package com.createam.model;
 
 import java.util.List;
 

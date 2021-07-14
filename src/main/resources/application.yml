@@ -8,8 +8,8 @@ payu:
 
 spring:
   profiles:
-    active: local
-    #active: heroku
+#    active: local
+    active: heroku
 
 # heroku config
 ---
@@ -17,6 +17,8 @@ spring:
   profiles: heroku
 server:
   addr: https://payu-demo.herokuapp.com
+ngrok:
+  enabled: false
 
 # local config with ngrok
 ---

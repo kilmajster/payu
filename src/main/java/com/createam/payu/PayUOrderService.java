@@ -1,4 +1,4 @@
-package com.createam.payu.order;
+package com.createam.payu;
 
 import javax.annotation.Resource;
 
@@ -6,13 +6,14 @@ import com.createam.config.PayUConfigurationProperties;
 import com.createam.controller.PayUController;
 import lombok.RequiredArgsConstructor;
 import ngrok.api.NgrokApiClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.createam.payu.order.model.OrderCreateRequest;
-import com.createam.payu.order.model.OrderCreateResponse;
+import com.createam.model.OrderCreateRequest;
+import com.createam.model.OrderCreateResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +25,9 @@ public class PayUOrderService {
 
   private final ObjectMapper objectMapper = new ObjectMapper();
   private final PayUConfigurationProperties payUConfiguration;
-  private final NgrokApiClient ngrok;
+
+  @Autowired(required = false)
+  private NgrokApiClient ngrok;
 
   @Resource(name = "payuApiRestTemplate")
   private RestTemplate restTemplate;

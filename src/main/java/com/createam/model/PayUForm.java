@@ -1,4 +1,4 @@
-package com.createam;
+package com.createam.model;
 
 
 import lombok.Data;

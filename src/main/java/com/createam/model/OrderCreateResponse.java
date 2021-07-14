@@ -1,4 +1,4 @@
-package com.createam.payu.order.model;
+package com.createam.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnore;

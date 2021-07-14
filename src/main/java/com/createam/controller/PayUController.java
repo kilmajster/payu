@@ -1,12 +1,12 @@
 package com.createam.controller;
 
-import com.createam.PayUForm;
+import com.createam.model.PayUForm;
 import com.createam.config.PayUConfigurationProperties;
-import com.createam.payu.order.PayUOrderService;
-import com.createam.payu.order.model.Buyer;
-import com.createam.payu.order.model.OrderCreateRequest;
-import com.createam.payu.order.model.OrderCreateResponse;
-import com.createam.payu.order.model.Product;
+import com.createam.payu.PayUOrderService;
+import com.createam.model.Buyer;
+import com.createam.model.OrderCreateRequest;
+import com.createam.model.OrderCreateResponse;
+import com.createam.model.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.Optional;
 
-import static com.createam.payu.order.model.OrderCreateResponse.Status.STATUS_CODE_SUCCESS;
+import static com.createam.model.OrderCreateResponse.Status.STATUS_CODE_SUCCESS;
 
 @Slf4j
 @Controller
